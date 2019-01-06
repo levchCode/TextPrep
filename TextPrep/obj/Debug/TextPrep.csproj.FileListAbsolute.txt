@@ -1,0 +1,11 @@
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\bin\Debug\TextPrep.exe.config
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\bin\Debug\TextPrep.exe
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\bin\Debug\TextPrep.pdb
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.csprojAssemblyReference.cache
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.Main.resources
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.Properties.Resources.resources
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.csproj.GenerateResource.cache
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.csproj.CoreCompileInputs.cache
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.exe
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.pdb
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.Result.resources
