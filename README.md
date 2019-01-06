@@ -1,2 +1,3 @@
 # TextPrep
-Make you own vocabulary exercises from texts  
+
+This app lets you create vocabulary tests. 
