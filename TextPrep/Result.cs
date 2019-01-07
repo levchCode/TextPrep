@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TextPrep
 {
@@ -20,7 +14,16 @@ namespace TextPrep
 
         private void Googledriveupload_Click(object sender, EventArgs e)
         {
-
+            string path = name.Text + ".txt";
+            File.WriteAllText(path, FinalText.Text);
+            if (Requests.googleupload(path, "Text" + name.Text, "Lesson " + name.Text) == "OK")
+            {
+                MessageBox.Show("Загружено!");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка!");
+            }
         }
     }
 }
