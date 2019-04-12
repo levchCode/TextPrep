@@ -9,7 +9,7 @@ namespace TextPrep
         public Result(String f)
         {
             InitializeComponent();
-            FinalText.Text = f;
+            FinalText.Rtf = f;
         }
 
         private void Googledriveupload_Click(object sender, EventArgs e)
@@ -18,11 +18,11 @@ namespace TextPrep
             File.WriteAllText(path, FinalText.Text);
             if (Requests.googleupload(path, "Text" + name.Text, "Lesson " + name.Text) == "OK")
             {
-                MessageBox.Show("Загружено!");
+                MessageBox.Show("Загружено на Google Drive", "Загружено", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("Ошибка!");
+                MessageBox.Show("Не могу соединиться с сервисами Google Drive", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

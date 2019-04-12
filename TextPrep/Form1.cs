@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TextPrep
 {
     public partial class Main : Form
     {
-
-        ListViewItem item;
-
+        
         public Main()
         {
             InitializeComponent();
@@ -23,39 +13,23 @@ namespace TextPrep
 
         private void compose_Click(object sender, EventArgs e)
         {
-            String Final = text.Text;
+            string Final = text.Rtf;
 
             int i = 1;
 
             Final += "\n\n";
             Final += "Задание 1. Найдите следующие слова в тексте. Переведите на русский \n\n";
-            foreach (ListViewItem s in task1.Items)
+            foreach (string s1 in task1.Items)
             {
-                Final +=  i + ". (" + s.Text + ") " + Requests.sendYandex(s.Text) + "\n";
+                Final +=  i + ". (" + s1 + ") " + Requests.sendYandex(s1, "ru-en") + "\n";
                 i++;
             }
 
             Final += "\n";
             Final += "Задание 2. Переведите слова на английский. \n\n";
-            foreach (ListViewItem s in task2.Items)
+            foreach (string s2 in task2.Items)
             {
-                Final += i + ". " + s.Text + " (" + Requests.sendYandex(s.Text) + ") \n";
-                i++;
-            }
-
-            Final += "\n";
-            Final += "Задание 3. Сопоставьте слова c их синонимами \n\n";
-            foreach (ListViewItem s in task3.Items)
-            {
-                Final += i + ". " + s.Text + "\n";
-                i++;
-            }
-
-            Final += "\n";
-            Final += "Задание 4. Сопоставьте слова c их антонимами \n\n";
-            foreach (ListViewItem s in task4.Items)
-            {
-                Final += i + ". " + s.Text + "\n";
+                Final += i + ". " + s2 + " (" + Requests.sendYandex(s2, "en") + ") \n";
                 i++;
             }
 
@@ -66,30 +40,25 @@ namespace TextPrep
        
         private void addtoex1_Click(object sender, EventArgs e)
         {
-            item = task1.Items.Add(text.SelectedText);
+            Edit ed = new Edit(text.SelectedText);
+            ed.FormClosed += Ed_Task1;
+            ed.Show();
 
-            item.BeginEdit();
+            void Ed_Task1(object s, FormClosedEventArgs eq)
+            {
+                task1.Items.Add(ed.w);
+            }
+
         }
+
+        
 
         private void addtoex2_Click(object sender, EventArgs e)
         {
-            item = task2.Items.Add(text.SelectedText);
-
-            item.BeginEdit();
+            Edit ed = new Edit(text.SelectedText);
+            ed.Show();
+            task2.Items.Add(text.SelectedText);
         }
 
-        private void addtoex3synonyms_Click(object sender, EventArgs e)
-        {
-            item = task3.Items.Add(text.SelectedText);
-
-            item.BeginEdit();
-        }
-
-        private void addtoex3antonyms_Click(object sender, EventArgs e)
-        {
-            item = task4.Items.Add(text.SelectedText);
-
-            item.BeginEdit();
-        }
     }
 }

@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Net.Http;
 using System.Web.Script.Serialization;
-using System.Diagnostics;
 using System.Windows.Forms;
-using System.Collections.Generic;
-
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-
-
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
-using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-
+using System.Diagnostics;
 
 namespace TextPrep
 {
@@ -31,23 +22,26 @@ namespace TextPrep
                            DriveService.Scope.DriveScripts };
 
         private static readonly HttpClient client = new HttpClient();
-        private static string dictURL = "https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20190101T101257Z.92f00ce56ddec9ca.1d814ae8913506a5179b4c3f582bae82082f6b6a&lang=ru-en&text=";
+        private static string dictURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20181117T095158Z.4b7a56f1d15a185f.5f6f8ec4625da21142f2a21ca85476bf76526cb9&text={0}&lang={1}";
 
-        public static string sendYandex(String w)
+        public static string sendYandex(string w, string dir)
         {
+
             try
             {
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
-                var resp = client.GetAsync(dictURL + w).Result;
+                
+                
+                var resp = client.GetAsync(string.Format(dictURL, w, dir)).Result;
 
                 dynamic result = serializer.Deserialize<dynamic>(resp.Content.ReadAsStringAsync().Result);
 
-                return result["def"][0]["tr"][0]["text"];
+                return result["text"][0];
             }
             catch (Exception)
             {
-                MessageBox.Show("Ошибка. Проверьте список слов!");
-                return String.Empty;
+                MessageBox.Show("Не могу соединиться с сервисами Яндекс", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
             }
         }
 
