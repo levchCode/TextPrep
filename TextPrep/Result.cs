@@ -9,7 +9,7 @@ namespace TextPrep
         public Result(String f)
         {
             InitializeComponent();
-            FinalText.Rtf = f;
+            FinalText.Text = f;
         }
 
         private void Googledriveupload_Click(object sender, EventArgs e)

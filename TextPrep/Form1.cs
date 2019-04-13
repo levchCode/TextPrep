@@ -13,7 +13,7 @@ namespace TextPrep
 
         private void compose_Click(object sender, EventArgs e)
         {
-            string Final = text.Rtf;
+            string Final = text.Text;
 
             int i = 1;
 

@@ -52,12 +52,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text.ContextMenuStrip = this.contextMenuStrip1;
-            this.text.Location = new System.Drawing.Point(4, 12);
+            this.text.Location = new System.Drawing.Point(4, 2);
             this.text.Name = "text";
-            this.text.Size = new System.Drawing.Size(621, 703);
+            this.text.Size = new System.Drawing.Size(621, 713);
             this.text.TabIndex = 0;
-            this.text.Text = "Мой дядя самых честных правил, когда не в шутку занемог он уважать себя заставил " +
-    "и лучше выдумать немог";
+            this.text.Text = "Be or not to be this is the question";
             // 
             // contextMenuStrip1
             // 
@@ -110,7 +109,7 @@
             this.compose.Name = "compose";
             this.compose.Size = new System.Drawing.Size(418, 29);
             this.compose.TabIndex = 10;
-            this.compose.Text = "Сформировать";
+            this.compose.Text = "Compile";
             this.compose.UseVisualStyleBackColor = true;
             this.compose.Click += new System.EventHandler(this.compose_Click);
             // 
@@ -135,7 +134,7 @@
             this.groupBox1.Size = new System.Drawing.Size(212, 678);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Задание 1";
+            this.groupBox1.Text = "Task 1 (en - lng)";
             // 
             // groupBox2
             // 
@@ -147,7 +146,7 @@
             this.groupBox2.Size = new System.Drawing.Size(200, 678);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Задание 2";
+            this.groupBox2.Text = "Task 1 (lng - en)";
             // 
             // task2
             // 
@@ -169,7 +168,7 @@
             this.Controls.Add(this.text);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "Main";
-            this.Text = "Подготовка текстов";
+            this.Text = "Vocab";
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

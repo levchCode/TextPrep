@@ -48,9 +48,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 13);
+            this.label1.Size = new System.Drawing.Size(172, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Проверьте правильность перевода!";
+            this.label1.Text = "Check everything before uploading";
             // 
             // Googledriveupload
             // 
@@ -58,7 +58,7 @@
             this.Googledriveupload.Name = "Googledriveupload";
             this.Googledriveupload.Size = new System.Drawing.Size(148, 23);
             this.Googledriveupload.TabIndex = 2;
-            this.Googledriveupload.Text = "Загрузить на Google Drive";
+            this.Googledriveupload.Text = "Upload to Google Drive";
             this.Googledriveupload.UseVisualStyleBackColor = true;
             this.Googledriveupload.Click += new System.EventHandler(this.Googledriveupload_Click);
             // 
@@ -72,11 +72,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(795, 20);
+            this.label2.Location = new System.Drawing.Point(854, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Номер урока";
+            this.label2.Text = "#";
             // 
             // Result
             // 
