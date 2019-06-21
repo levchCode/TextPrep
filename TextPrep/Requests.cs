@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 using System.Net.Http;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace TextPrep
@@ -22,17 +24,46 @@ namespace TextPrep
                            DriveService.Scope.DriveScripts };
 
         private static readonly HttpClient client = new HttpClient();
-        private static string dictURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20181117T095158Z.4b7a56f1d15a185f.5f6f8ec4625da21142f2a21ca85476bf76526cb9&text={0}&lang={1}";
+        private static string dictURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key={2}&text={0}&lang={1}";
+        private static string pairsURL = "https://translate.yandex.net/api/v1.5/tr.json/getLangs?ui=en&key={0}";
 
-        public static string sendYandex(string w, string dir)
+        public static string sendYandex(string w, bool dir)
         {
+            //dir sets direciton of translation
+            //true if you want learn_lang->main_lang or false other way around
+            string key = "";
+            string mainLang = "";
+            string learnLang = "";
+
+            using (XmlReader reader = XmlReader.Create(@"settings.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        switch (reader.Name.ToString())
+                        {
+                            case "yandexKey":
+                                key = reader.ReadString();
+                                break;
+                            case "mainLang":
+                                mainLang = reader.ReadString();
+                                break;
+                            case "learnLang":
+                                learnLang = reader.ReadString();
+                                break;
+                        }
+                    }
+                }
+            }
+
+            string pair = learnLang + "-" + mainLang;
 
             try
             {
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
-                
-                
-                var resp = client.GetAsync(string.Format(dictURL, w, dir)).Result;
+
+                var resp = client.GetAsync(string.Format(dictURL, w, pair, key)).Result;
 
                 dynamic result = serializer.Deserialize<dynamic>(resp.Content.ReadAsStringAsync().Result);
 
@@ -40,9 +71,46 @@ namespace TextPrep
             }
             catch (Exception)
             {
-                MessageBox.Show("Не могу соединиться с сервисами Яндекс", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Can't connect to Yandex.Translate", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
             }
+        }
+
+        public static dynamic get_pairs()
+        {
+            string key = "";
+            using (XmlReader reader = XmlReader.Create(@"settings.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        switch (reader.Name.ToString())
+                        {
+                            case "yandexKey":
+                                key = reader.ReadString();
+                                break;
+                        }
+                    }
+                }
+            }
+
+            try
+            {
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                var resp = client.GetAsync(string.Format(pairsURL, key)).Result;
+
+                dynamic result = serializer.Deserialize<dynamic>(resp.Content.ReadAsStringAsync().Result);
+
+                return result["dirs"];
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+
         }
 
         public static string googleupload(string path, string TextName, string folderName)

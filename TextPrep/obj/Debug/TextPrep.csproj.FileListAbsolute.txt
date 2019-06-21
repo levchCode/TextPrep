@@ -28,3 +28,4 @@ C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\bin\Debug\Google.Apis.Dr
 C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\bin\Debug\Newtonsoft.Json.xml
 C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.csproj.CopyComplete
 C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.Edit.resources
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Debug\TextPrep.Settings.resources

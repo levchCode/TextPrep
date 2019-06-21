@@ -27,3 +27,5 @@ C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Release\TextPrep.csp
 C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Release\TextPrep.csproj.CopyComplete
 C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Release\TextPrep.exe
 C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Release\TextPrep.pdb
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Release\TextPrep.Edit.resources
+C:\Users\levch\Desktop\Проекты\TextPrep\TextPrep\obj\Release\TextPrep.Settings.resources

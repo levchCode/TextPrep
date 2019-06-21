@@ -41,9 +41,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.task2 = new System.Windows.Forms.ListBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // text
@@ -52,9 +55,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.text.ContextMenuStrip = this.contextMenuStrip1;
-            this.text.Location = new System.Drawing.Point(4, 2);
+            this.text.Location = new System.Drawing.Point(4, 27);
             this.text.Name = "text";
-            this.text.Size = new System.Drawing.Size(621, 713);
+            this.text.Size = new System.Drawing.Size(621, 688);
             this.text.TabIndex = 0;
             this.text.Text = "Be or not to be this is the question";
             // 
@@ -119,7 +122,7 @@
             this.task1.FormattingEnabled = true;
             this.task1.Location = new System.Drawing.Point(3, 16);
             this.task1.Name = "task1";
-            this.task1.Size = new System.Drawing.Size(206, 659);
+            this.task1.Size = new System.Drawing.Size(206, 634);
             this.task1.TabIndex = 11;
             // 
             // groupBox1
@@ -128,25 +131,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.task1);
-            this.groupBox1.Location = new System.Drawing.Point(631, 2);
+            this.groupBox1.Location = new System.Drawing.Point(631, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(212, 678);
+            this.groupBox1.Size = new System.Drawing.Size(212, 653);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Task 1 (en - lng)";
+            this.groupBox1.Text = "Task 1 (main-learn)";
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.task2);
-            this.groupBox2.Location = new System.Drawing.Point(849, 2);
+            this.groupBox2.Location = new System.Drawing.Point(849, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 678);
+            this.groupBox2.Size = new System.Drawing.Size(200, 653);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Task 1 (lng - en)";
+            this.groupBox2.Text = "Task 2 (learn - main)";
             // 
             // task2
             // 
@@ -154,14 +157,32 @@
             this.task2.FormattingEnabled = true;
             this.task2.Location = new System.Drawing.Point(3, 16);
             this.task2.Name = "task2";
-            this.task2.Size = new System.Drawing.Size(194, 659);
+            this.task2.Size = new System.Drawing.Size(194, 634);
             this.task2.TabIndex = 11;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1055, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 719);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.compose);
@@ -169,9 +190,12 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "Main";
             this.Text = "Vocab";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +215,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox task2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 
